@@ -1,4 +1,4 @@
-public class Dime {
+public class Dime implements ICoin{
     public String GetName(){
         return "Dime";
     }
