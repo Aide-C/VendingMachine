@@ -1,4 +1,4 @@
-public class Quarter {
+public class Quarter implements ICoin{
     public String GetName(){
         return "Ouarter";
     }
