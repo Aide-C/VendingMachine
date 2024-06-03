@@ -4,17 +4,18 @@ public class Machine {
     private IMoneyBox _moneybox;
     private int _mymoney;
 
-    public Machine(MoneyBox moneybox, ITray[] trays){
+    public Machine(IMoneyBox moneybox, ITray[] trays){
         _trays = trays;
         _moneybox = moneybox;
+        _mymoney = 0;
     }
 
     public String[] Vend(int traynum){
-        if (traynum < 0 || traynums >= _trays.length){
+        if (traynum < 0 || traynum >= _trays.length){
             return new String[] {"ERROR"};
         } 
 
-        Itray tray = _trays[traynum];
+        ITray tray = _trays[traynum];
         int price = tray.Price();
 
         if (price > _moneybox.GetBalance()){
@@ -24,10 +25,10 @@ public class Machine {
         _moneybox.Spend(price);
         _mymoney += price;
         String Vended = tray.Vend();
-        return new String[]{"Vended " + Vended + ". New Balance: " + _moneybox.GetBalance()};
+        return new String[]{"Vended " + Vended + ". New Balance: " + _moneybox.GetBalance() + ". My Money : " + _mymoney};
     }
 
-    public Itray[] trays(){
+    public ITray[] trays(){
         return _trays;
     }
 }

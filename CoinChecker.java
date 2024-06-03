@@ -4,7 +4,7 @@ public class CoinChecker {
     private static List<ICoin> vaild = new ArrayList<>();
 
     public static void addVaild(ICoin[] iCoins) {
-        for (ICoin c : vaild){
+        for (ICoin c : iCoins){
             vaild.add(c);
         }
     }
